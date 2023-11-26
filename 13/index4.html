@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkPointInCircle() {
+        const x = parseFloat(prompt('Введите координату X точки:'));
+        const y = parseFloat(prompt('Введите координату Y точки:'));
+        const radius = parseFloat(prompt('Введите радиус окружности:'));
+
+        if (isNaN(x) || isNaN(y) || isNaN(radius)) {
+            alert('Некорректный ввод. Пожалуйста, введите числовые значения для координат и радиуса.');
+            return;
+        }
+
+        const distance = Math.sqrt(x ** 2 + y ** 2);
+
+        if (distance <= radius) {
+            alert('Точка находится внутри окружности.');
+        } else {
+            alert('Точка находится вне окружности.');
+        }
+    }
+
+    checkPointInCircle();
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function printArray(array) {
+        if (array.length === 0) {
+            alert("Массив пуст.");
+        } else if (Array.isArray(array[0])) {
+            alert("Двумерный массив:\n" + array.map(row => row.join(", ")).join("\n"));
+        } else {
+            alert("Одномерный массив: " + array.join(", "));
+        }
+    }
+
+
+    const userInput = prompt("Введите заголовок (одномерный или двумерный):");
+
+    if (userInput === "одномерный") {
+        const array = [1, 2, 3, 4, 5];
+        printArray(array);
+    } else if (userInput === "двумерный") {
+        const array = [[1, 2], [3, 4], [5, 6]];
+        printArray(array);
+    } else {
+        alert("Некорректный заголовок. Пожалуйста, введите 'одномерный' или 'двумерный'.");
+    }
+</script>
+</body>
+</html>

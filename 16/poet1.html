@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Александр Пушкин</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Александр Пушкин</h1>
+<img src="https://tatarica.org/application/files/8516/4873/0057/Pushkin_A.S._gl.jpeg" alt="Фото Александра Пушкина">
+<p id="poet-info">Александр Сергеевич Пушкин — русский поэт, драматург и прозаик, основоположник современного русского литературного языка.</p>
+<script>
+  $(document).ready(function() {
+    setTimeout(function() {
+      $('#poet-info').text('Александр Сергеевич Пушкин — русский поэт, драматург и прозаик, автор "Евгения Онегина" и многих других известных произведений.');
+    }, 5000);
+  });
+</script>
+</body>
+</html>

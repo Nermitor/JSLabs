@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function generateSquareMatrix(size) {
+        const matrix = [];
+
+        for (let i = 0; i < size; i++) {
+            matrix[i] = [];
+
+            for (let j = 0; j < size; j++) {
+                matrix[i][j] = Math.floor(Math.random() * 10);
+            }
+        }
+
+        let mainDiagonalSum = 0;
+        for (let i = 0; i < size; i++) {
+            mainDiagonalSum += matrix[i][i];
+        }
+
+        let secondaryDiagonalSum = 0;
+        for (let i = 0; i < size; i++) {
+            secondaryDiagonalSum += matrix[i][size - 1 - i];
+        }
+
+        if (mainDiagonalSum !== secondaryDiagonalSum) {
+            return generateSquareMatrix(size);
+        }
+
+        return matrix;
+    }
+
+    const size = parseInt(prompt('Введите количество строк/столбцов:'));
+
+    if (isNaN(size)) {
+        alert('Некорректный ввод. Пожалуйста, введите числовое значение для количества строк/столбцов.');
+    } else {
+        const matrix = generateSquareMatrix(size);
+        const matrixOutput = matrix.map(row => row.join(' ')).join('\n');
+        alert(matrixOutput);
+    }
+</script>
+</body>
+</html>

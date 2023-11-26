@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  const words = ['КАПУСТА', 'МОРКОВЬ', 'ПОМИДОР', 'ОГУРЕЦ', 'БАНАН'];
+
+  function getRandomWord() {
+    const randomIndex = Math.floor(Math.random() * words.length);
+    return words[randomIndex];
+  }
+
+  function isLetter(input) {
+    return /^[а-яА-Я]+$/.test(input);
+  }
+
+  function getPlayerGuess(isFirstGuess) {
+    let promptMessage = 'Введите букву:';
+    if (isFirstGuess) {
+      promptMessage += ' (или введите "EXIT" для досрочного завершения игры)';
+    }
+
+    let guess = prompt(promptMessage);
+    while (!isLetter(guess)) {
+      guess = prompt('Некорректный ввод. Пожалуйста, введите букву:');
+    }
+    return guess.toUpperCase();
+  }
+
+  function startGame() {
+    const wordToGuess = getRandomWord();
+    let guessedLetters = [];
+    let remainingAttempts = 7;
+    let isFirstGuess = true;
+
+    while (remainingAttempts > 0) {
+      let progress = '';
+
+      for (let letter of wordToGuess) {
+        if (guessedLetters.includes(letter)) {
+          progress += letter + ' ';
+        } else {
+          progress += '_ ';
+        }
+      }
+
+      alert('Угаданные буквы: ' + guessedLetters.join(', '));
+      alert('Осталось попыток: ' + remainingAttempts);
+      alert('Прогресс: ' + progress);
+
+      const guess = getPlayerGuess(isFirstGuess);
+      isFirstGuess = false;
+
+      if (guess === 'EXIT') {
+        break;
+      }
+
+      if (guessedLetters.includes(guess)) {
+        alert('Вы уже угадали эту букву!');
+      } else if (wordToGuess.includes(guess)) {
+        guessedLetters.push(guess);
+
+        if (guessedLetters.length === wordToGuess.length) {
+          alert('Вы угадали слово! Поздравляем!');
+          break;
+        }
+      } else {
+        remainingAttempts--;
+        alert('Такой буквы нет в слове! Осталось попыток: ' + remainingAttempts);
+
+        if (remainingAttempts === 0) {
+          alert('Вы проиграли! Загаданное слово было: ' + wordToGuess);
+        }
+      }
+    }
+
+    const playAgain = confirm('Хотите сыграть еще раз?');
+    if (playAgain) {
+      startGame();
+    }
+  }
+
+  startGame();
+</script>
+</body>
+</html>

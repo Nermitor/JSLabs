@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function factorial(number) {
+        if (number === 0 || number === 1) {
+            return 1;
+        } else {
+            return number * factorial(number - 1);
+        }
+    }
+
+    const input = parseInt(prompt("Введите число:"));
+
+    if (isNaN(input) || input < 0) {
+        alert("Некорректный ввод. Пожалуйста, введите положительное число.");
+    } else {
+        alert(`Факториал числа ${input}: ${factorial(input)}`);
+    }
+</script>
+</body>
+</html>

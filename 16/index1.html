@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Изучаем DOM</title>
+</head>
+<body>
+<h1 id="poem-heading">Стихотворение</h1>
+<p id="poem"></p>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script>
+    var poems = [
+        "Я помню чудное мгновенье<br>Передо мной явилась ты<br>Как мимолетное виденье<br>Как гений чистой красоты",
+        "Она принадлежит тем летам<br>Когда цветущий мир цветет<br>Когда сияет летний свет<br>И сердцу вольное дает",
+        "Мне нравятся те мгновения<br>Когда ты со мной рядом<br>Когда счастье несет в нем<br>И радость делает героем"
+    ];
+
+    function updatePoem() {
+        var randomIndex = Math.floor(Math.random() * poems.length);
+        var poemText = poems[randomIndex];
+        $("#poem").html(poemText);
+    }
+    updatePoem();
+    // Обновляем стихотворение каждые 10 секунд
+    setInterval(updatePoem, 10000);
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Киногерои</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #favorites img {
+            max-width: 300px;
+            max-height: 300px;
+        }
+    </style>
+</head>
+<body>
+<h1>Мои любимые книги, кинофильмы и автомобили</h1>
+
+<p>Что вы больше любите: кино, книги, автомобили?</p>
+<button id="movies">Кино</button>
+<button id="books">Книги</button>
+<button id="cars">Автомобили</button>
+
+<div id="favorites"></div>
+
+<script>
+    const books = [
+        ["Война и мир", "https://cv9.litres.ru/pub/c/cover_max1500/49592199.jpg"],
+        ["Преступление и наказание", "https://main-cdn.sbermegamarket.ru/big1/hlr-system/-14/862/975/771/112/203/8/100029626519b0.jpg"],
+        ["Анна Каренина", "https://upload.wikimedia.org/wikipedia/ru/5/5a/Anna_Karenina_poster.jpg"],
+    ];
+
+    const movies = [
+        ["Титаник", "https://upload.wikimedia.org/wikipedia/ru/1/19/Titanic_%28Official_Film_Poster%29.png"],
+        ["Звёздные войны", "https://upload.wikimedia.org/wikipedia/ru/2/23/%D0%9F%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D0%B8%D0%B5%D0%94%D0%B6%D0%B5%D0%B4%D0%B0%D0%B8.jpg"],
+        ["Аватар", "https://upload.wikimedia.org/wikipedia/ru/4/4b/Avatar-2009.jpg"],
+    ];
+
+    const cars = [
+        ["BMV", "https://cdn.kodixauto.ru/media/image/60a789ed9118e00ea800b400"],
+        ["Мерседес", "https://motor.ru/imgs/2022/10/26/14/5641749/dd0eabd8dd5b9b69f675869994c1986c42873d8a.jpg"],
+        ["Феррари", "https://i0.wp.com/www.motorsportitalia.it/wp-content/uploads/2022/07/ferrari-1.jpg?fit=958%2C637&ssl=1"],
+    ];
+
+    function displayFavorites(favorites) {
+        $("#favorites").empty();
+        for (let i = 0; i < favorites.length; i++) {
+            const item = favorites[i];
+            const itemName = item[0];
+            const imageUrl = item[1];
+
+            $("#favorites").append(`<div><img src="${imageUrl}" alt="${itemName}"><p>${itemName}</p></div>`);
+        }
+    }
+
+    $(document).ready(function() {
+        $("#books").click(function() {
+            const selectedBooks = books.slice(0, 3);
+            displayFavorites(selectedBooks);
+        });
+
+        $("#movies").click(function() {
+            const selectedMovies = movies.slice(0, 3);
+            displayFavorites(selectedMovies);
+        });
+
+        $("#cars").click(function() {
+            const selectedCars = cars.slice(0, 3);
+            displayFavorites(selectedCars);
+        });
+    });
+</script>
+</body>
+</html>

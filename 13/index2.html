@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function generateMatrix(rows, columns) {
+        const matrix = [];
+
+        for (let i = 0; i < rows; i++) {
+            matrix[i] = [];
+
+            for (let j = 0; j < columns; j++) {
+                matrix[i][j] = Math.floor(Math.random() * 10);
+            }
+        }
+
+        return matrix;
+    }
+
+    // Запрашиваем количество строк и столбцов у пользователя
+    const rows = parseInt(prompt('Введите количество строк:'));
+    const columns = parseInt(prompt('Введите количество столбцов:'));
+
+    if (isNaN(rows) || isNaN(columns)) {
+        alert('Некорректный ввод. Пожалуйста, введите числовое значение для количества строк и столбцов.');
+    } else {
+        // Вызов функции для генерации матрицы
+        const matrix = generateMatrix(rows, columns);
+        const matrixOutput = matrix.map(row => row.join(' ')).join('\n');
+        alert(matrixOutput);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function computePower(N, S) {
+        if (S === 0) {
+            return 1;
+        } else {
+            return N * computePower(N, S - 1);
+        }
+    }
+
+    const N = parseFloat(prompt("Введите число N:"));
+    const S = parseInt(prompt("Введите степень S:"));
+
+    if (isNaN(N) || isNaN(S) || S < 0) {
+        alert("Некорректный ввод. Пожалуйста, введите число N и неотрицательную целую степень S.");
+    } else {
+        const result = computePower(N, S);
+        alert(`Результат вычисления: ${result}`);
+    }
+</script>
+</body>
+</html>

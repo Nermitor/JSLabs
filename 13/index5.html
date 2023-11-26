@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function createEmptyBoard(size) {
+        return Array.from({ length: size }, () => Array(size).fill('-'));
+    }
+
+    function printBoard(board) {
+        alert(board.map(row => row.join(' ')).join('\n'));
+    }
+
+    function makeMove(board, row, col, symbol) {
+        if (board[row][col] === '-') {
+            board[row][col] = symbol;
+            return true;
+        }
+        return false;
+    }
+
+    function checkWin(board, symbol) {
+        const size = board.length;
+
+        const rowWin = board.some(row => row.every(cell => cell === symbol));
+        const colWin = board.some((_, colIndex) => board.every(row => row[colIndex] === symbol));
+        const diag1Win = board.every((row, rowIndex) => row[rowIndex] === symbol);
+        const diag2Win = board.every((row, rowIndex) => row[size - 1 - rowIndex] === symbol);
+
+        return rowWin || colWin || diag1Win || diag2Win;
+    }
+
+    function getComputerMove(board) {
+        const size = board.length;
+        let row, col;
+        do {
+            row = Math.floor(Math.random() * size);
+            col = Math.floor(Math.random() * size);
+        } while (board[row][col] !== '-');
+        return { row, col };
+    }
+
+    function playGame() {
+        const size = parseInt(prompt('Введите размер поля:'));
+        if (isNaN(size)) {
+            alert('Некорректный ввод. Пожалуйста, введите числовое значение для размера поля.');
+            return;
+        }
+        const board = createEmptyBoard(size);
+        let currentPlayer = 'X';
+        while (true) {
+            printBoard(board);
+            if (currentPlayer === 'X') {
+                const row = parseInt(prompt('Ход игрока X. Введите номер строки:'));
+                const col = parseInt(prompt('Ход игрока X. Введите номер столбца:'));
+                if (isNaN(row) || isNaN(col) || row < 0 || row >= size || col < 0 || col >= size) {
+                    alert('Некорректный ход. Пожалуйста, введите правильные координаты.');
+                    continue;
+                }
+                if (!makeMove(board, row, col, currentPlayer)) {
+                    alert('Данная ячейка уже занята. Пожалуйста, выберите другую ячейку.');
+                    continue;
+                }
+                if (checkWin(board, currentPlayer)) {
+                    alert(`Игрок ${currentPlayer} победил!`);
+                    break;
+                }
+                currentPlayer = 'O';
+            } else {
+                const computerMove = getComputerMove(board);
+                makeMove(board, computerMove.row, computerMove.col, currentPlayer);
+                if (checkWin(board, currentPlayer)) {
+                    alert(`Игрок ${currentPlayer} победил!`);
+                    break;
+                }
+                currentPlayer = 'X';
+            }
+        }
+    }
+    playGame();
+</script>
+</body>
+</html>

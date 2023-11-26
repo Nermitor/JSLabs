@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function getAlphabetLetterByIndex(index, alphabet) {
+        let letter;
+
+        if (alphabet === "кириллица") {
+            letter = String.fromCharCode(1071 + index); // код буквы "А" в таблице символов Unicode
+        } else if (alphabet === "латиница") {
+            letter = String.fromCharCode(64 + index); // код буквы "A" в таблице символов Unicode
+        } else {
+            return "Выберите алфавит: кириллица или латиница.";
+        }
+
+        return letter;
+    }
+
+    const alphabetChoice = prompt("Выберите алфавит: кириллица или латиница.");
+    const input = parseInt(prompt("Введите число номер буквы:"));
+
+    if (isNaN(input) || input <= 0) {
+        alert("Некорректный ввод. Пожалуйста, введите положительное число больше нуля.");
+    } else {
+        const result = getAlphabetLetterByIndex(input, alphabetChoice);
+        alert(`Буква на позиции ${input} в выбранном алфавите: ${result}`);
+    }
+</script>
+</body>
+</html>

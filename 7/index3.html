@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const days = [
+        { dayOfWeek: 'Понедельник', breakfast: 'каша', place: 'колледж' },
+        { dayOfWeek: 'Вторник', breakfast: 'яичница', place: 'колледж' },
+        { dayOfWeek: 'Среда', breakfast: 'тосты', place: 'колледж' },
+        { dayOfWeek: 'Четверг', breakfast: 'овсянка', place: 'колледж' },
+        { dayOfWeek: 'Пятница', breakfast: 'блины', place: 'колледж' },
+        { dayOfWeek: 'Суббота', breakfast: 'омлет', place: 'театр' },
+        { dayOfWeek: 'Воскресенье', breakfast: 'сэндвич', place: 'кино' },
+    ];
+
+    function getDayOfWeek() {
+        const today = new Date().getDay();
+        return days[today];
+    }
+
+    const day = getDayOfWeek();
+    const message = `Сегодня ${day.dayOfWeek} вы будете есть ${day.breakfast} и пойдете в ${day.place}.`;
+
+    alert(message);
+
+    const url = (day.place === 'колледж') ? 'https://ci.nsu.ru/' :
+        (day.place === 'театр') ? 'https://nsk.kassir.ru/bilety-v-teatr' :
+            (day.place === 'кино') ? 'https://www.kinopoisk.ru' : '';
+
+    if (url) {
+        window.open(url, '_blank');
+    }
+</script>
+</body>
+</html>

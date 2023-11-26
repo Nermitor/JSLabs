@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function calculatePi(accuracy) {
+        let insideCircle = 0;
+        let totalPoints = 0;
+
+        for (let i = 0; i < accuracy; i++) {
+            const x = Math.random();
+            const y = Math.random();
+            const distance = Math.sqrt(x * x + y * y);
+
+            if (distance <= 1) {
+                insideCircle++;
+            }
+
+            totalPoints++;
+        }
+
+        return (insideCircle / totalPoints) * 4;
+    }
+
+    // Пример использования для разных степеней точности:
+    const lowAccuracy = 10;
+    const mediumAccuracy = 1000;
+    const highAccuracy = 10000000;
+
+    alert('Приближенное значение числа Пи (низкая точность): ' + calculatePi(lowAccuracy));
+    alert('Приближенное значение числа Пи (средняя точность): ' + calculatePi(mediumAccuracy));
+    alert('Приближенное значение числа Пи (высокая точность): ' + calculatePi(highAccuracy));</script>
+</body>
+</html>

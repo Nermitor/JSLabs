@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+    const name = prompt("Как вас зовут?");
+    alert("Привет, " + name);
+    document.write("Привет, " + name + "<br>");
+
+    const CAT = [
+        { name: "Мурка", price: 100, food: "рыба" },
+        { name: "Барсик", price: 200, food: "молоко" },
+        { name: "Васька", price: 150, food: "курица" },
+        { name: "Матильда", price: 300, food: "консервы" }
+    ];
+
+    const DOG = [
+        { name: "Шарик", price: 500, food: "кости" },
+        { name: "Рекс", price: 400, food: "мясо" },
+        { name: "Бобик", price: 600, food: "сухой корм" },
+        { name: "Лайка", price: 350, food: "консервы" }
+    ];
+
+    const likesCats = confirm("Тебе нравятся кошки?");
+    if (likesCats) {
+        let catOptions = '';
+        for (let i = 0; i < CAT.length; i++) {
+            catOptions += `${i + 1}. ${CAT[i].name}\n`;
+        }
+        const catIndex = parseInt(prompt("Выберите номер кошки из списка:\n" + catOptions)) - 1;
+        const selectedCat = CAT[catIndex];
+        const foodAmount = parseInt(prompt("Сколько корма нужно купить кошке?"));
+        const catCost = selectedCat.price;
+        const totalCost = catCost + foodAmount;
+        document.write(`Выбрана кошка: ${selectedCat.name}<br>`);
+        document.write(`Любимая еда: ${selectedCat.food}<br>`);
+        document.write(`Стоимость кошки: ${catCost} рублей<br>`);
+        document.write(`Стоимость корма: ${foodAmount} рублей<br>`);
+        document.write(`Общая стоимость покупки: ${totalCost} рублей<br>`);
+    } else {
+        let dogOptions = '';
+        for (let i = 0; i < DOG.length; i++) {
+            dogOptions += `${i + 1}. ${DOG[i].name}\n`;
+        }
+        const dogIndex = parseInt(prompt("Выберите номер собаки из списка:\n" + dogOptions)) - 1;
+        const selectedDog = DOG[dogIndex];
+        const foodAmount = parseInt(prompt("Сколько корма нужно купить собаке?"));
+        const dogCost = selectedDog.price;
+        const totalCost = dogCost + foodAmount;
+        document.write(`Выбрана собака: ${selectedDog.name}<br>`);
+        document.write(`Любимая еда: ${selectedDog.food}<br>`);
+        document.write(`Стоимость собаки: ${dogCost} рублей<br>`);
+        document.write(`Стоимость корма: ${foodAmount} рублей<br>`);
+        document.write(`Общая стоимость покупки: ${totalCost} рублей<br>`);
+    }
+</script>
+</body>
+</html>

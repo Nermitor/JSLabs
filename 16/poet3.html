@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анна Ахматова</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Анна Ахматова</h1>
+<img src="https://radiovera.ru/wp-content/uploads/2016/10/Ahmatova.jpg" alt="Фото Анны Ахматовой">
+<p id="poet-info">Анна Андреевна Ахматова — русская поэтесса, одна из самых значительных литературных фигур XX века.</p>
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $('#poet-info').text('Анна Андреевна Ахматова — русская поэтесса, автор множества стихотворений о любви, трагедии и времени.');
+        }, 5000);
+    });
+</script>
+</body>
+</html>

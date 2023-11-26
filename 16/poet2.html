@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Сергей Есенин</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>Сергей Есенин</h1>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Sergey_Yesenin_2.jpg/250px-Sergey_Yesenin_2.jpg" alt="Фото Сергея Есенина">
+<p id="poet-info">Сергей Александрович Есенин — русский поэт, один из самых известных и популярных поэтов XX века.</p>
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $('#poet-info').text('Сергей Александрович Есенин — русский поэт, автор многих стихотворений о родной природе и любви.');
+        }, 5000);
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function sumNumbers() {
+    const evenOrOdd = prompt("Какие числа суммировать: четные (введите 'четные') или нечетные (введите 'нечетные')?");
+    let sum = 0, count = 0, i = 1;
+
+    while (count < 10) {
+      if ((evenOrOdd === "четные" && i % 2 === 0) || (evenOrOdd === "нечетные" && i % 2 !== 0)) {
+        sum += i;
+        count++;
+      }
+      i++;
+    }
+
+    alert(`Сумма первых десяти ${evenOrOdd} чисел: ${sum}`);
+  }
+
+  sumNumbers();
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fibonacci(n) {
+        if (n === 0) {
+            return 0;
+        } else if (n === 1) {
+            return 1;
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+    }
+
+    const input = parseInt(prompt("Введите число N:"));
+
+    if (isNaN(input) || input < 0) {
+        alert("Некорректный ввод. Пожалуйста, введите положительное число.");
+    } else {
+        const result = fibonacci(input);
+        alert(`N-е число Фибоначчи для N = ${input}: ${result}`);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Изучаем DOM</title>
+</head>
+<body>
+<h1 id="main-heading">Привет, мир!</h1>
+<h1 id="second-heading">Второй заголовок</h1>
+<script>
+    var mainHeadingElement = document.getElementById("main-heading");
+    var secondHeadingElement = document.getElementById("second-heading");
+
+    console.log(mainHeadingElement.innerHTML);
+    console.log(secondHeadingElement.innerHTML);
+
+    var newMainHeadingText = prompt("Введите новый текст для первого заголовка:");
+    var newSecondHeadingText = prompt("Введите новый текст для второго заголовка:");
+
+    mainHeadingElement.innerHTML = newMainHeadingText;
+    secondHeadingElement.innerHTML = newSecondHeadingText;
+</script>
+</body>
+</html>

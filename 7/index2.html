@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const CAT = ["Мурка", "Барсик", "Том", "Лео", "Снежок", "Рыжик", "Масяня", "Васька"];
+    const DOG = ["Шарик", "Бобик", "Тузик", "Рекс", "Бим", "Джек", "Оскар", "Макс"];
+
+    const name = prompt("Введите ваше имя");
+
+    if (CAT.includes(name) || DOG.includes(name)) {
+        alert("Похоже, вы - кошка (или собака)");
+        window.open("https://lubim4iki.ru/", "_blank")
+    } else {
+        alert("Похоже, вы - человек");
+        window.open("https://www.raznyeludi.ru/", "_blank")
+    }
+</script>
+</body>
+</html>

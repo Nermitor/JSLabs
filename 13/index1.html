@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // Функция для генерации случайного целого числа от min до max
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  // Создание двух двумерных массивов размером 4x4
+  const matrix1 = [];
+  const matrix2 = [];
+
+  for (let i = 0; i < 4; i++) {
+    matrix1[i] = [];
+    matrix2[i] = [];
+
+    for (let j = 0; j < 4; j++) {
+      matrix1[i][j] = getRandomInt(0, 4);
+      matrix2[i][j] = getRandomInt(0, 4);
+    }
+  }
+
+  // Вывод на экран первого массива
+  const matrix1Output = 'Матрица 1:\n' + matrix1.map(row => row.join(' ')).join('\n');
+  alert(matrix1Output);
+
+  // Вывод на экран второго массива
+  const matrix2Output = 'Матрица 2:\n' + matrix2.map(row => row.join(' ')).join('\n');
+  alert(matrix2Output);
+
+  // Сложение двух массивов
+  const resultMatrix = [];
+
+  for (let i = 0; i < 4; i++) {
+    resultMatrix[i] = [];
+
+    for (let j = 0; j < 4; j++) {
+      resultMatrix[i][j] = matrix1[i][j] + matrix2[i][j];
+    }
+  }
+
+  // Вывод на экран результата сложения
+  const resultOutput = 'Результат сложения:\n' + resultMatrix.map(row => row.join(' ')).join('\n');
+  alert(resultOutput);
+</script>
+</body>
+</html>

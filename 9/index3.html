@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Факториал числа</title>
+
+</head>
+<body>
+<button onclick="factorial()">Вычислить факториал</button>
+
+<script>
+    function factorial() {
+        const number = parseInt(prompt("Введите положительное число:"));
+
+        if (isNaN(number) || number < 0) {
+            return alert("Некорректный ввод. Пожалуйста, введите положительное число.");
+        }
+
+        let result = 1;
+
+        for (let i = 2; i <= number; i++) {
+            result *= i;
+        }
+
+        alert(`Факториал числа ${number}: ${result}`);
+    }
+</script>
+</body>
+</html>

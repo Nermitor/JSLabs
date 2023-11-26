@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница поэтов</title>
+    <style>
+        #poem {
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+<h1>Страница поэтов</h1>
+<label for="poet">Выберите поэта:</label>
+<select id="poet">
+    <option value="пушкин">Пушкин</option>
+    <option value="лермонтов">Лермонтов</option>
+    <option value="тютчев">Тютчев</option>
+    <option value="есенин">Есенин</option>
+</select>
+<button onclick="showPoem()">Показать стихотворение</button>
+<div id="poem"></div>
+
+<script>
+    function showPoem() {
+        const poetSelect = document.getElementById("poet");
+        const selectedPoet = poetSelect.value.toLowerCase();
+        const poemContainer = document.getElementById("poem");
+
+        switch (selectedPoet) {
+            case "пушкин":
+                poemContainer.textContent = "Мой дядя самых честных правил,\nКогда не в шутку занемог,\nОн уважать себя заставил\nИ лучше выдумать не мог.";
+                break;
+            case "лермонтов":
+                poemContainer.textContent = "Я помню чудное мгновенье:\nПередо мной явилась ты,\nКак мимолетное виденье,\nКак гений чистой красоты.";
+                break;
+            case "тютчев":
+                poemContainer.textContent = "Среди громадного моря\nМысль блещет далека\nИ край угрюмый горя\nНадеждою сияет.";
+                break;
+            case "есенин":
+                poemContainer.textContent = "Мне бы в небо, мне бы крылья,\nНе беда, что не важен\nВеселья легкий пылкий\nИ светлый разговорчик.";
+                break;
+            default:
+                poemContainer.textContent = "Я не знаю такого поэта.";
+                break;
+        }
+    }
+</script>
+</body>
+</html>

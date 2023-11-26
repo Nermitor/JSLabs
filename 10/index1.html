@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function medalForScore(score) {
+        if (score < 3) {
+            return "Бронзовая";
+        }
+        if (score < 7) {
+            return "Серебряная";
+        }
+        return "Золотая";
+    }
+
+    alert(medalForScore(Number(prompt("Результат:"))));
+
+</script>
+</body>
+</html>
